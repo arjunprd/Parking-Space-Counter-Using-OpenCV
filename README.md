@@ -29,8 +29,6 @@ The project has two main parts:
 
 ---
 
-
-
 ## 🗂️ Project Structure
 
 Parking-Space-Counter-Using-OpenCV/
@@ -51,34 +49,31 @@ Make sure you have **Python 3.7+** and install dependencies using:
 ```bash
 pip install opencv-python numpy
 ```
+---
 
 🚀 Usage
-Step 1: Prepare Your Project Folder
+# Step 1: Prepare Your Project Folder
 
 Place all of the following in the same directory:
 
-**`main.py`**
-
-**`parking_space_picker.py`**
-
-**`carPark.mp4`** (your parking lot video)
-
-**`img.png`** (a reference image — or use the video to create one)
+- **`main.py`**
+- **`parking_space_picker.py`**
+- **`carPark.mp4`** (your parking lot video)
+- **`img.png`** (a reference image — or use the video to create one)
 
 💡 You can extract a frame from your video to use as img.png:
 
-import cv2
+**`import cv2
 cap = cv2.VideoCapture('carPark.mp4')
 ret, frame = cap.read()
 cv2.imwrite('img.png', frame)
-cap.release()
+cap.release()`**
 
-Step 2: Mark Parking Spots
+# Step 2: Mark Parking Spots
 
 Run:
 
-python parking_space_picker.py
-
+**`python parking_space_picker.py`**
 
 Then:
 
@@ -90,11 +85,11 @@ Press ESC when done
 
 This creates a carParkPos file (saved automatically) that stores your spot coordinates.
 
-Step 3: Run the Parking Space Counter
+# Step 3: Run the Parking Space Counter
 
 Once your positions are marked, start the main script:
 
-python main.py
+**`python main.py`**
 
 
 This will:
@@ -105,29 +100,29 @@ Analyze each frame of carPark.mp4
 
 Display:
 
-🟩 Green rectangles → free spaces
+# 🟩 Green rectangles → free spaces
 
-🟥 Red rectangles → occupied spaces
+# 🟥 Red rectangles → occupied spaces
 
 A live counter showing Free: X / Total
 
 🧠 How It Works
 
-Spot Selection
+# Spot Selection
 You select the coordinates of each parking space, which are saved using Python’s pickle module.
 
-Frame Preprocessing
+# Frame Preprocessing
 Each video frame is converted to grayscale, blurred, and thresholded to highlight occupied areas.
 
-Binary Analysis
+# Binary Analysis
 The algorithm crops each predefined parking rectangle and counts non-zero (white) pixels.
-
 Low count → free space
-
 High count → occupied space
 
-Visualization
+# Visualization
 Each space is drawn as a colored rectangle on the live video feed, with real-time counts displayed.
+
+---
 
 🧱 Technical Details
 
@@ -135,13 +130,15 @@ Languages / Tools: Python, OpenCV, NumPy, Pickle
 
 Key Functions Used:
 
-cv2.VideoCapture() — for reading video frames
+**`cv2.VideoCapture()`** — for reading video frames
 
-cv2.adaptiveThreshold() — for light-adaptive binarization
+**`cv2.adaptiveThreshold()`** — for light-adaptive binarization
 
-cv2.countNonZero() — to check occupancy
+**`cv2.countNonZero()`** — to check occupancy
 
-cv2.rectangle() & cv2.putText() — for drawing overlays
+**`cv2.rectangle()`** & cv2.putText() — for drawing overlays
+
+---
 
 🧰 Troubleshooting
 Problem	Possible Cause	Fix
@@ -149,17 +146,13 @@ FileNotFoundError: carParkPos	No saved positions	Run parking_space_picker.py fir
 cv2.error: !_src.empty()	Wrong video/image path	Files must be in the same folder as the script
 No video displayed	Codec issue or wrong file format	Convert video to .mp4 or .avi
 Window closes instantly	Press ESC to exit instead of closing manually	
+
+---
+
 🧩 Improvements (Future Work)
+- Integrate real-time camera feed instead of pre-recorded video
+- Add automatic spot detection using edge/contour detection
+- Implement a simple Flask dashboard to monitor parking status remotely
+- Log data (occupancy over time) for analytics
 
-Integrate real-time camera feed instead of pre-recorded video
 
-Add automatic spot detection using edge/contour detection
-
-Implement a simple Flask dashboard to monitor parking status remotely
-
-Log data (occupancy over time) for analytics
-
-🏁 Credits
-
-Developed by Arjun Prasad
-Built with OpenCV and Python 3
