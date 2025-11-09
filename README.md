@@ -140,15 +140,6 @@ Key Functions Used:
 
 ---
 
-🧰 Troubleshooting
-Problem	Possible Cause	Fix
-FileNotFoundError: carParkPos	No saved positions	Run parking_space_picker.py first
-cv2.error: !_src.empty()	Wrong video/image path	Files must be in the same folder as the script
-No video displayed	Codec issue or wrong file format	Convert video to .mp4 or .avi
-Window closes instantly	Press ESC to exit instead of closing manually	
-
----
-
 🧩 Improvements (Future Work)
 - Integrate real-time camera feed instead of pre-recorded video
 - Add automatic spot detection using edge/contour detection
