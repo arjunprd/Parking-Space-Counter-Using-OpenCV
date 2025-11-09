@@ -34,14 +34,13 @@ The project has two main parts:
 ## 🗂️ Project Structure
 
 Parking-Space-Counter-Using-OpenCV/
-│
-parking space counter/
-    main.py # Main detection script
-    parking_space_picker.py # Setup script to mark parking spots
-    carPark.mp4 # Input video (parking lot footage)
-    img.png # Static image used for marking (can be a frame from video)
-    carParkPos # Pickle file storing parking spot coordinates
-    README.md
+- parking space counter/
+    - main.py # Main detection script
+    - parking_space_picker.py # Setup script to mark parking spots
+    - carPark.mp4 # Input video (parking lot footage)
+    - img.png # Static image used for marking (can be a frame from video)
+    - carParkPos # Pickle file storing parking spot coordinates
+    - README.md
 
 ---
 
